@@ -1,0 +1,8 @@
+.idea
+.vscode
+__pycache__
+covid.test.csv
+covid.train.csv
+models
+pred.csv
+runs
