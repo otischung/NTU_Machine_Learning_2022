@@ -38,7 +38,10 @@ test_loader = DataLoader(test_dataset, batch_size=config['batch_size'], shuffle=
 
 # Start training
 model = My_Model(input_dim=x_train.shape[1]).to(device)  # put your model and data on the same computation device.
-trainer(train_loader, valid_loader, model, config, device)
+try:
+    trainer(train_loader, valid_loader, model, config, device)
+except KeyboardInterrupt:
+    print(f"{bcolors.FAIL}Received Keyboard Interrupt, Stop Training.{bcolors.ENDC}", file=sys.stderr)
 
 model = My_Model(input_dim=x_train.shape[1]).to(device)
 model.load_state_dict(torch.load(config['save_path']))
