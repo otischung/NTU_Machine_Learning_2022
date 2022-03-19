@@ -1,1 +1,1 @@
-rm models runs pred.csv -rf
+rm models runs pred.csv __pycache__ -rf
